@@ -1,0 +1,26 @@
+{
+  "name": "xsc-patcher",
+  "version": "1.0.0",
+  "description": "Applies XVI32 .xsc patch scripts to binary files.",
+  "main": "index.js",
+  "type": "commonjs", 
+  "bin": {
+    "xsc-patcher": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xsc",
+    "patch",
+    "hex",
+    "binary",
+    "xvi32"
+  ],
+  "author": "", 
+  "license": "MIT", 
+  "engines": {
+    "node": ">=22.14.0" 
+  }
+}

@@ -1,0 +1,17 @@
+# Node.js
+node_modules
+
+# Other
+.DS_Store
+*.orig
+*.log
+*.iml
+*.flattened-pom.xml
+
+# IDEs
+.vscode
+.idea
+.vscode/**/*
+
+#scratch files
+*scratch.*
