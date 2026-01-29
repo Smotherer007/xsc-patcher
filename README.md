@@ -88,6 +88,17 @@ const parser = new XscParser();
 const patcher = new Patcher();
 ```
 
+## Browser Usage
+
+For browser builds, import the browser entry and work with byte arrays:
+
+```ts
+import { Patcher, XscParser } from "xsc-patcher/browser";
+
+const parser = new XscParser();
+const patcher = new Patcher();
+```
+
 ## `.xsc` File Format
 
 This tool expects a simple text file format based on common XVI32 script usage for patching:

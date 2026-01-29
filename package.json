@@ -11,7 +11,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "browser": "./dist/browser.js",
       "default": "./dist/index.js"
+    },
+    "./browser": {
+      "types": "./dist/browser.d.ts",
+      "default": "./dist/browser.js"
     }
   },
   "scripts": {
@@ -36,7 +41,7 @@
     "binary",
     "xvi32"
   ],
-  "author": "",
+  "author": "Patrick Weppelmann",
   "license": "Apache-2.0",
   "engines": {
     "node": ">=22.14.0"

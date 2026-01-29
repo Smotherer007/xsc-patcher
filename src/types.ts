@@ -1,5 +1,5 @@
 export interface ReplacementRule {
-    find: Buffer;
-    replace: Buffer;
+    find: Uint8Array;
+    replace: Uint8Array;
     lineNumber: number;
 }
