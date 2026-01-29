@@ -1,5 +1,5 @@
 {
-  "name": "xsc-patcher",
+  "name": "@patimweb/xsc-patcher",
   "version": "1.0.0",
   "description": "Applies XVI32 .xsc patch scripts to binary files.",
   "main": "dist/index.js",
@@ -26,6 +26,9 @@
     "README.md",
     "LICENSE"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "xsc",
     "patch",
