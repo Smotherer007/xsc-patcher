@@ -8,23 +8,27 @@ A simple command-line utility to apply binary patches defined in XVI32-compatibl
 * Applies hexadecimal search-and-replace operations to any target binary file.
 * **Automatically creates a backup** (`.bak`) of the target file before applying any patches.
 * Simple and straightforward command-line interface.
-* Requires only Node.js (no external npm package dependencies).
+* Requires only Node.js for runtime (TypeScript is used for development).
 * Includes basic error handling for file access and patching integrity.
 
 ## Prerequisites
 
-* **Node.js**: Version 14.0.0 or higher recommended (as specified in `package.json`). You can download it from [nodejs.org](https://nodejs.org/).
+* **Node.js**: Version 22.14.0 or higher (as specified in `package.json`). You can download it from [nodejs.org](https://nodejs.org/).
 
 ## Installation (Optional)
 
 You can run the script directly using Node.js or optionally install/link it for easier access:
 
-1.  **Clone or Download:** Get the project files (`index.js`, `package.json`) into a directory on your system.
+1.  **Clone or Download:** Get the project files (`index.ts`, `package.json`) into a directory on your system.
 2.  **Navigate:** Open your terminal or command prompt and navigate into the project directory (`cd path/to/xsc-patcher`).
-3.  **Options:**
+3.  **Build:** Compile the TypeScript once before running:
+    ```bash
+    npm run build
+    ```
+4.  **Options:**
     * **Direct Execution (Recommended for simplicity):**
         ```bash
-        node index.js <path_to_xsc_script.xsc> <path_to_target_file>
+        node dist/index.js <path_to_xsc_script.xsc> <path_to_target_file>
         ```
     * **Using npx:**
         ```bash
@@ -54,7 +58,7 @@ Run the patcher from your terminal, providing the path to the `.xsc` script and 
 xsc-patcher <path_to_xsc_script.xsc> <path_to_target_file>
 
 # If running directly with Node.js:
-node index.js <path_to_xsc_script.xsc> <path_to_target_file>
+node dist/index.js <path_to_xsc_script.xsc> <path_to_target_file>
 ```
 
 **Arguments:**
@@ -66,10 +70,22 @@ node index.js <path_to_xsc_script.xsc> <path_to_target_file>
 
 ```bash
 # Using direct execution:
-node index.js ./patches/my_modification.xsc "/home/user/app/application.bin"
+node dist/index.js ./patches/my_modification.xsc "/home/user/app/application.bin"
 
 # Using linked/installed command:
 xsc-patcher C:\Mods\patch.xsc "C:\Program Files\MySoftware\program.exe" 
+```
+
+## Library Usage (TypeScript/ESM)
+
+You can also import the patcher classes from another project:
+
+```ts
+import { BackupManager, Patcher, XscParser } from "xsc-patcher";
+
+const backupManager = new BackupManager();
+const parser = new XscParser();
+const patcher = new Patcher();
 ```
 
 ## `.xsc` File Format
@@ -107,7 +123,7 @@ If critical errors occur, the script will output an error message and exit, atte
 
 ## License
 
-This project is licensed under the MIT License. See the `package.json` file for details.
+This project is licensed under the Apache License 2.0. See the `LICENSE` file for details.
 
 ## Disclaimer
 

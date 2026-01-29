@@ -1,0 +1,1 @@
+{"version":3,"file":"xsc-parser.d.ts","sourceRoot":"","sources":["../../src/xsc-parser.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,YAAY,CAAC;AAElD;;GAEG;AACH,MAAM,CAAC,OAAO,OAAO,SAAS;;IAC1B;;;;OAIG;IACH,KAAK,CAAC,WAAW,EAAE,MAAM,GAAG,eAAe,EAAE,GAAG,IAAI;IAqBpD;;;;;OAKG;IACH,WAAW,CAAC,MAAM,EAAE,MAAM,GAAG,eAAe,EAAE;CA0EjD"}

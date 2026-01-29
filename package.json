@@ -2,15 +2,30 @@
   "name": "xsc-patcher",
   "version": "1.0.0",
   "description": "Applies XVI32 .xsc patch scripts to binary files.",
-  "main": "index.js",
-  "type": "commonjs", 
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
   "bin": {
-    "xsc-patcher": "./index.js"
+    "xsc-patcher": "./dist/index.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
-    "start": "node index.js",
+    "build": "tsc",
+    "lint": "eslint . --ext .ts",
+    "start": "node dist/index.js",
+    "type-check": "tsc --noEmit",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "files": [
+    "dist/**",
+    "README.md",
+    "LICENSE"
+  ],
   "keywords": [
     "xsc",
     "patch",
@@ -18,9 +33,17 @@
     "binary",
     "xvi32"
   ],
-  "author": "", 
-  "license": "MIT", 
+  "author": "",
+  "license": "Apache-2.0",
   "engines": {
-    "node": ">=22.14.0" 
+    "node": ">=22.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
+    "semantic-release": "^25.0.2",
+    "typescript": "^5.9.3"
   }
 }
