@@ -76,9 +76,9 @@ node dist/index.js ./patches/my_modification.xsc "/home/user/app/application.bin
 xsc-patcher C:\Mods\patch.xsc "C:\Program Files\MySoftware\program.exe" 
 ```
 
-## Library Usage (TypeScript/ESM)
+## Library Usage (TypeScript/ESM - Node)
 
-You can also import the patcher classes from another project:
+You can also import the patcher classes from another Node project. The Node entry includes file I/O helpers.
 
 ```ts
 import { BackupManager, Patcher, XscParser } from "xsc-patcher";
@@ -90,13 +90,29 @@ const patcher = new Patcher();
 
 ## Browser Usage
 
-For browser builds, import the browser entry and work with byte arrays:
+For browser builds, import the browser entry. It is file-system free and works with byte arrays only.
+You are responsible for loading the `.xsc` content and the target bytes (e.g. via `fetch` or file input).
 
 ```ts
 import { Patcher, XscParser } from "xsc-patcher/browser";
 
 const parser = new XscParser();
 const patcher = new Patcher();
+```
+
+Example (browser):
+
+```ts
+import { Patcher, XscParser } from "xsc-patcher/browser";
+
+const parser = new XscParser();
+const patcher = new Patcher();
+
+const xscText = await (await fetch("/patches/my_patch.xsc")).text();
+const rules = parser.parseString(xscText);
+
+const targetBytes = new Uint8Array(await (await fetch("/files/target.bin")).arrayBuffer());
+const patched = patcher.applyToBuffer(targetBytes, rules);
 ```
 
 ## `.xsc` File Format
